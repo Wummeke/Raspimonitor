@@ -1,0 +1,42 @@
+  - id: 406
+    type: 'custom:vertical-stack-in-card'
+    title: Raspi System Monitor
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.raspi_cpu_usage
+            name: CPU
+            icon: mdi:chip
+            line_color: '#B3CBB9'
+            line_width: 2
+            hours_to_show: 24
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.raspi_cpu_temperature
+            name: Temp
+            line_color: '#D4AFCD'
+            line_width: 2
+            hours_to_show: 24
+      - type: custom:bar-card
+        entity: sensor.raspi_disk_usage
+        title: HDD
+        title_position: inside
+        align: split
+        show_icon: true
+        color: '#B3CBB9'
+      - type: custom:bar-card
+        entity: sensor.raspi_memory_usage
+        title: RAM
+        title_position: inside
+        align: split
+        show_icon: true
+      - type: entities
+        entities:
+          - entity: sensor.raspi_days_since_boot
+            name: Last boot
+            icon: mdi:calendar-month
+          - entity: sensor.raspi_power_status
+            name: Power state
+            icon: mdi:power
