@@ -30,6 +30,5 @@
     sensors:
         raspi_days_since_boot:
           friendly_name: 'Raspi Days since last boot'
-          #value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime( states.sensor.raspi_last_boot.state, "%Y-%m-%d")) ) / 86400 ) | round(2) }}'
           value_template: '{{ ((as_timestamp(now()) - as_timestamp( strptime( states.sensor.raspi_last_boot.state, "%Y-%m-%d")) ) / 86400 ) | round(0)  }}'
           unit_of_measurement: 'Day(s) ago'
