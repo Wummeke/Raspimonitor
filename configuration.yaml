@@ -1,0 +1,5 @@
+mqtt:
+  server: 1.1.0.2
+  port: 1883
+  username: <USERNAME>
+  password: <PASSWORD>
