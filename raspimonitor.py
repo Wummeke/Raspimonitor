@@ -107,3 +107,4 @@ if __name__ == '__main__':
     publish_message(config, computer_name, "Home/" + computer_name + "/CpuUsagePercent", cu)
     publish_message(config, computer_name, "Home/" + computer_name + "/LastBoot", get_last_boot())
     publish_message(config, computer_name, "Home/" + computer_name + "/PowerStatus", get_rpi_power_status())
+    
