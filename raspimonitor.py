@@ -81,11 +81,12 @@ def publish_message(config, mqttclient, topic, message):
     mqtt_port = config['port']
     mqtt_username = config['username']
     mqtt_password = config['password']
+    mqtt_retain = config['retain']
     
     print("Publishing to MQTT topic: " + topic)
     print("Message: " + message)
 
-    publish.single(topic, message, retain=True, hostname=mqtt_broker, 
+    publish.single(topic, message, retain=mqtt_retain, hostname=mqtt_broker, 
                     port=mqtt_port, client_id=mqttclient, auth={'username':mqtt_username, 'password':mqtt_password})
 
 if __name__ == '__main__':
@@ -107,4 +108,3 @@ if __name__ == '__main__':
     publish_message(config, computer_name, "Home/" + computer_name + "/CpuUsagePercent", cu)
     publish_message(config, computer_name, "Home/" + computer_name + "/LastBoot", get_last_boot())
     publish_message(config, computer_name, "Home/" + computer_name + "/PowerStatus", get_rpi_power_status())
-    
