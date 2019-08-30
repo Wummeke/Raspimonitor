@@ -85,7 +85,7 @@ def publish_message(config, mqttclient, topic, message):
     print("Publishing to MQTT topic: " + topic)
     print("Message: " + message)
 
-    publish.single(topic, message, retain=False, hostname=mqtt_broker, 
+    publish.single(topic, message, retain=True, hostname=mqtt_broker, 
                     port=mqtt_port, client_id=mqttclient, auth={'username':mqtt_username, 'password':mqtt_password})
 
 if __name__ == '__main__':
@@ -93,7 +93,7 @@ if __name__ == '__main__':
     scriptdir = os.path.dirname(__file__)
     CONFIGPATH = os.path.join(scriptdir, CONFIGFILE)
     print(CONFIGPATH)
-    config = yaml.load(open(CONFIGPATH, 'r'))['mqtt']
+    config = yaml.safe_load(open(CONFIGPATH, 'r'))['mqtt']
     
     time.sleep(5)
     cu = get_cpu_usage()
